@@ -2,7 +2,7 @@
 from Functions.fetch_json import fetch_json
 
 def elementExists(element):
-    with open("../ForbidenUsers.csv", 'r') as file:
+    with open("C:/Users/Давід/PycharmProjects/LastSeenMaybeLast/ForbidenUsers.csv", 'r') as file:
         for line in file:
             if element in line:
                 return True

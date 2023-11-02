@@ -1,5 +1,5 @@
 import os
-
+import subprocess
 from Functions import FormatData
 from Functions import ConvertToReadable
 from Functions import OffsetLoop
@@ -12,18 +12,18 @@ from Functions import inputId
 from Functions import DeleteUser
 from Functions import TotalTime
 from Functions import DailyWeekly
-import requests
 from Functions import MinMax
 from Functions import TotalTimeOnRange
 from Functions import CreateSaveReport
 from Functions import Input
 from Functions import GlobalDataReport
 from Functions import RetrieveReport
+from Functions import FInal
 def main():
     WhatToDo=input("1-Offset Data, 2-Analyzing Data, 3-Delete and Prevent Data collection\n")
 
     if WhatToDo=="2":
-        choice=input("1-GetHistoricalData, 2-GetDataForCertainUser, 3-PredictHIstoricalData, 4-PredictDataForuser, 5-Total time for user, 6-Daily Weekly, 7-TotalOnRange, 8-Min, 9-Max, 10-MakeReport, 11-SearchReport, 12-TotalReport, 13-retrieve report\n")
+        choice=input("1-GetHistoricalData, 2-GetDataForCertainUser, 3-PredictHIstoricalData, 4-PredictDataForuser, 5-Total time for user, 6-Daily Weekly, 7-TotalOnRange, 8-Min, 9-Max, 10-MakeReport, 11-SearchReport, 12-TotalReport, 13-retrieve report, 14-Final\n")
         dataset=input("InputDataSet:\n")
         if choice=="1":
             date=DateInput.DateInput()
@@ -91,6 +91,14 @@ def main():
         elif choice=='13':
             res=RetrieveReport.RetriveDat(dataset)
             return res
+        elif choice=='14':
+            res=FInal.ShowFirst()
+            print(res)
+            return res
+
+
+
+
 
 
 
@@ -100,7 +108,6 @@ def main():
         FormatedList={}
 
         for i in UserList:
-            #FileWriter.ReadDataWriteData(i)
             FormatedList[i['nickname']]= FormatData.FormatData(i)
         finalList=[]
         for i in FormatedList:
